@@ -24,7 +24,14 @@
     transform: rotate(360deg);
   }
 }
-
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image:url('./marble.jpg');
+  height: 100vh;
+}
 .heading{
   display: flex;
   justify-content:flex-start;
@@ -34,9 +41,10 @@
   color: rgb(44,147,94);
 }
 .list{
-  border: 1px solid rgba(116, 116, 116, 0.548);
+  border: 1px solid rgba(116, 116, 116, 0.726);
   width: 600px;
   min-height: 800px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.253);
+  box-shadow: 0px 3px 15px rgba(2, 83, 233, 0.808);
   border-radius: 5px;
+  background-image: url('./paper.jpg');
 }
