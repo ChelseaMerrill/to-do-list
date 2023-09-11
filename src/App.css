@@ -48,3 +48,7 @@
   border-radius: 5px;
   background-image: url('./paper.jpg');
 }
+.item{
+  display: flex;
+  line-height: 0%;
+}
