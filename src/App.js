@@ -3,44 +3,55 @@ import { v4 as uuidv4 } from 'uuid'
 import logo from './check.png';
 import './App.css';
 
-const initialList = [
+const startingList = [
   {
     id:1,
-    item:'take out trash'
+    name:'take out trash'
   },
   {
     id: 2,
-    item: 'go for a run'
+    name: 'go for a run'
   },
   {
     id:3,
-    item: 'wash car'
+    name: 'wash car'
   }
 ]
 
-function App() {
 
-  const [tasks, setTasks] = React.useState(initialList);
+const AddItem = ({ name, onChange, onAdd }) => (
+  <div>
+    <input type="text" value={name} onChange={onChange} className='adding'/>
+    <button type="button" onClick={onAdd}>
+      Add
+    </button>
+  </div>
+);
+
+const Tasks = ({ tasks }) => (
+  <ul>
+    {tasks.map((item) => (
+          <li key={item.id} className='item'>
+          <input type="checkbox"/>
+          <p>{item.name}</p>
+        </li>
+    ))}
+  </ul>
+);
+
+const App = () => {
+  const [tasks, setTasks] = React.useState(startingList);
   const [name, setName] = React.useState('');
-  
-  const handleChange = (e) => {
-    setName(e.target.value);
+
+  const handleChange = (event) => {
+    setName(event.target.value);
   }
-  const addItem = () => {
+
+  const handleAddItem = () => {
     const newList = tasks.concat({ name, id: uuidv4() });
-
     setTasks(newList);
-
     setName('');
-
   }
-
-  const Todo = tasks.map(task => 
-    <li key={task.id} className='item'>
-      <input type="checkbox"/>
-      <p>{task.item}</p>
-    </li>
-  )
 
   return (
     <div className="App">
@@ -49,9 +60,15 @@ function App() {
         <h1>Chelsea's To-Do List</h1>
       </div>
       <div className='list'>
-        <ul>{Todo}</ul>
-        <input type="text" value={name} onChange={handleChange}/>
-        <button onClick={addItem}>add</button>
+      <div>
+      <AddItem
+        name={name}
+        onChange={handleChange}
+        onAdd={handleAddItem}
+      />
+      <Tasks tasks={tasks} />
+    </div>
+     
 
       </div>
     </div>
