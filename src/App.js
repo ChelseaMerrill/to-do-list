@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'
-import logo from './check.png';
+import logo from './title.png';
 import './App.css';
 
 const startingList = [
-  {
-    id:1,
-    name:'take out trash'
-  },
-  {
-    id: 2,
-    name: 'go for a run'
-  },
-  {
-    id:3,
-    name: 'wash car'
-  }
+  // {
+  //   id:1,
+  //   name:'take out trash'
+  // },
+  // {
+  //   id: 2,
+  //   name: 'go for a run'
+  // },
+  // {
+  //   id:3,
+  //   name: 'wash car'
+  // }
 ]
 
 
@@ -56,8 +56,9 @@ const App = () => {
   return (
     <div className="App">
       <div className='heading'>
-        <div className='logo-container'><img src={logo} className="App-logo" alt="checkmark" /></div>      
-        <h1>Chelsea's To-Do List</h1>
+        <div className="inner-heading">
+          <div className='logo-container'><img src={logo} className="App-logo" alt="title"/></div> 
+        </div>
       </div>
       <div className='list'>
       <div>
