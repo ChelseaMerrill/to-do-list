@@ -1,0 +1,6 @@
+.item{
+    display: flex;
+    height: 25px;
+    line-height: 0;
+    align-items: center;
+}
